@@ -1,0 +1,143 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>MavenHybridFramework</groupId>
+    <artifactId>MavenHybridFramework</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>HybridFramework</name>
+
+<!--    <properties>-->
+<!--        &lt;!&ndash; Encoding for Build/ Console &ndash;&gt;-->
+<!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+
+<!--        &lt;!&ndash; Encoding for Report &ndash;&gt;-->
+<!--        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>-->
+
+<!--        &lt;!&ndash; Compiler Code with Java 8 &ndash;&gt;-->
+<!--        <maven.compiler.target>1.8</maven.compiler.target>-->
+<!--        <maven.compiler.source>1.8</maven.compiler.source>-->
+
+<!--        &lt;!&ndash; Global variable for dependencies &ndash;&gt;-->
+<!--        <webdriver.version>4.11.0</webdriver.version>-->
+<!--        <testng.version>6.14.3</testng.version>-->
+<!--        <jackson.version>2.9.4</jackson.version>-->
+<!--        <aspectj.version>1.8.10</aspectj.version>-->
+<!--    </properties>-->
+
+    <dependencies>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.14.3</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>23.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>3.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-scratchpad</artifactId>
+            <version>3.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>ooxml-schemas</artifactId>
+            <version>1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>openxml4j</artifactId>
+            <version>1.0-beta</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.relevantcodes</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>2.41.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+        <!--	<dependency>-->
+        <!--		 <groupId>org.apache.commons</groupId>-->
+        <!--		 <artifactId>commons-email</artifactId>-->
+        <!--		 <version>1.5</version>-->
+        <!--	</dependency>-->
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+    </dependencies>
+    <!-- Compiler/ Run Test -->
+    <build>
+        <plugins>
+            <!-- Compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <!-- Compiler code vs Java 8 -->
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <!-- Run test -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <configuration>
+                    <!-- Run TestNG xml file -->
+                    <suiteXmlFiles>
+                        <file>src/test/resources/testng_regression.xml</file>
+                    </suiteXmlFiles>
+
+                    <!-- Argument -->
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                </configuration>
+
+            </plugin>
+        </plugins>
+    </build>
+</project>

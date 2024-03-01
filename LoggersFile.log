@@ -1,0 +1,5 @@
+2024-03-01 17:20:18,003  INFO [main] TestUtility:29 - Browser Launched Successfully
+2024-03-01 17:20:39,032  INFO [main] TasksPage:58 - New Task Created Successfully
+2024-03-01 17:20:41,640  INFO [main] TasksPage:58 - New Task Created Successfully
+2024-03-01 17:20:42,421  INFO [main] TasksPage:68 - Verified Delete Task
+2024-03-01 17:20:43,831  INFO [main] TasksPage:88 - Browser Terminated
